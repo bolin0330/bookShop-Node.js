@@ -42,9 +42,9 @@ async function getBookReview(isbn) {
 async function registerUser(username, password) {
     if (!authUsers.isValid(username)) {
         authUsers.users.push({ username, password });
-        return;
+        return { message: "User successfully registered" };
     } else {
-        throw new Error("User already exists");
+        return { error: "User already exists" };
     }
 }
 

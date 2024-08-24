@@ -76,14 +76,13 @@ publicRouter.get('/books/review/:isbn', async (req, res) => {
 publicRouter.post('/register', async (req, res) => {
     const { username, password } = req.body;
     try {
-        if (username && password) {
-            registerUser(username, password);
-            return res.status(200).json({ message: "User successfully registered. Now you can login" });
-        } else {
-            return res.status(400).json({ message: "Username or password missing." });
+        const result = await registerUser(username, password);
+        if (result.error) {
+            return res.status(400).json({ message: result.error });
         }
+        res.status(200).json(result);
     } catch (error) {
-        res.status(500).json({ message: "Internal server error." });
+        res.status(500).json({ message: 'Internal Server Error' });
     }
 });
 

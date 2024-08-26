@@ -1,6 +1,4 @@
 const express = require('express');
-const session = require('express-session');
-const jwt = require('jsonwebtoken');
 const { getBookList, getBookByISBN, getBooksByAuthor, getBooksByTitle, getBookReview, registerUser } = require("../utils/utils.js");
 
 const publicRouter = express.Router();
@@ -82,7 +80,7 @@ publicRouter.post('/register', async (req, res) => {
         }
         res.status(200).json(result);
     } catch (error) {
-        res.status(500).json({ message: 'Internal Server Error' });
+        res.status(500).json({ message: "Internal Server Error" });
     }
 });
 

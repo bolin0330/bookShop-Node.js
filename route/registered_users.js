@@ -1,7 +1,6 @@
 const express = require('express');
 const session = require('express-session');
 const jwt = require('jsonwebtoken');
-const books = require("../database/booksdb.js");
 const { newUser, authenticatedUser } = require('./auth_users');
 const { addOrUpdateReview, deleteReview } = require('../utils/utils');
 

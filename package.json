@@ -1,6 +1,6 @@
 {
   "name": "bookreview",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A bookshop application with user authentication and book management features",
   "main": "server.js",
   "scripts": {
